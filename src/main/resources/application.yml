@@ -1,0 +1,11 @@
+server:
+  port: 8081
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+
+jauth:
+  token: myjava123
