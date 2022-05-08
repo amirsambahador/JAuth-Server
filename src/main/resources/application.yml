@@ -5,7 +5,10 @@ spring:
     hibernate:
       ddl-auto: create-drop
     show-sql: true
-
-
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: amirsam
+    password: myjava123
 jauth:
   token: myjava123
