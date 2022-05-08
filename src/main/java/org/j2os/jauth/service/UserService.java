@@ -32,11 +32,6 @@ public class UserService {
         return this;
     }
 
-    @Transactional
-    public UserService update(User user) {
-        userDA.save(user);
-        return this;
-    }
 
     @Transactional
     public UserService remove(User user) {
@@ -53,15 +48,13 @@ public class UserService {
         return this;
     }
 
-    public Map<String, String> login(User user) throws InvalidUsernameAndPasswordException, UserNotFindException, NoSuchAlgorithmException, JAuthTokenInvalid {
+    public String login(User user) throws InvalidUsernameAndPasswordException, UserNotFindException, NoSuchAlgorithmException, JAuthTokenInvalid {
         user = userDA.findByUsernameAndPassword(user.getUsername(), SHA.get512(user.getPassword()
                 .concat(findByUsername(user).getCreationTime().toString())))
                 .orElseThrow(InvalidUsernameAndPasswordException::new);
         user.setToken(UUID.randomUUID().toString());
         userDA.save(user);
-        Map<String, String> json = new HashMap<>();
-        json.put("token", user.getToken());
-        return json;
+        return user.getToken();
     }
 
     public User findByToken(User user) throws InvalidTokenException {

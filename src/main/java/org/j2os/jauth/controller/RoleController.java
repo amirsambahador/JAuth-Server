@@ -55,12 +55,5 @@ public class RoleController {
         }
     }
 
-    @RequestMapping("/findById")
-    public Object findById(@ModelAttribute Role role) {
-        try {
-            return roleService.findById(role);
-        } catch (Exception e) {
-            return ExceptionWrapper.getError(e);
-        }
-    }
+
 }

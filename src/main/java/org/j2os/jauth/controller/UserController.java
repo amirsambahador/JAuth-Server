@@ -27,15 +27,6 @@ public class UserController {
         }
     }
 
-    @RequestMapping("/update")
-    public Object update(@ModelAttribute User user) {
-        try {
-            return userService.update(user).findById(user);
-        } catch (Exception e) {
-            return ExceptionWrapper.getError(e);
-        }
-    }
-
     @RequestMapping("/remove")
     public Object remove(@ModelAttribute User user) {
         try {
@@ -85,15 +76,6 @@ public class UserController {
     public Object findByUsername(@ModelAttribute User user) {
         try {
             return userService.findByUsername(user);
-        } catch (Exception e) {
-            return ExceptionWrapper.getError(e);
-        }
-    }
-
-    @RequestMapping("/findById")
-    public Object findById(@ModelAttribute User user) {
-        try {
-            return userService.findById(user);
         } catch (Exception e) {
             return ExceptionWrapper.getError(e);
         }
