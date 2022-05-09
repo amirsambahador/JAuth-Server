@@ -12,6 +12,20 @@ import java.util.List;
 
 @Controller
 public class JAuthController implements Filter {
+
+    static {
+        System.out.println();
+        System.out.println();
+        System.out.println("     ██╗ █████╗ ██╗   ██╗████████╗██╗  ██╗\n" +
+                "     ██║██╔══██╗██║   ██║╚══██╔══╝██║  ██║\n" +
+                "     ██║███████║██║   ██║   ██║   ███████║\n" +
+                "██   ██║██╔══██║██║   ██║   ██║   ██╔══██║\n" +
+                "╚█████╔╝██║  ██║╚██████╔╝   ██║   ██║  ██║\n" +
+                " ╚════╝ ╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚═╝  ╚═╝");
+        System.out.println();
+        System.out.println();
+    }
+
     @Value("${jauth.token}")
     private String jAuthToken;
 
